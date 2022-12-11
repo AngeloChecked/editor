@@ -1,0 +1,18 @@
+[package]
+name = "egui-remake"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["glow"]
+glow = ["eframe/glow"]
+
+[dependencies]
+chrono = { version = "0.4", features = ["js-sys", "wasmbind"] }
+eframe = { version = "0.20.0", default-features = false }
+egui = { version = "0.20.0", features = [ "extra_debug_asserts", ] }
+tracing = "0.1"
+
+# native:
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tracing-subscriber = "0.3"
